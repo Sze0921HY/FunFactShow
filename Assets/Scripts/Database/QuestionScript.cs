@@ -13,12 +13,9 @@ public class QuestionScript : ScriptableObject
         [TextArea]
         public string question;
         public string[] options = new string[4];
+        public int questionIndex;
         public int correctAnswerIndex;
 
-        public Image
-
-
+        public Sprite image;
     }
-
-
 }
