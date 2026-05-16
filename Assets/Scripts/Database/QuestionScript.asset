@@ -13,30 +13,27 @@ MonoBehaviour:
   m_Name: QuestionScript
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScript
   questionList:
-  - question: HEY HEY HEY
+  - question: How long does it take for pineapples to grow before they can be harvested?
     options:
-    - 1
-    - 2
-    - 3
-    - 4
-    questionIndex: 0
-    correctAnswerIndex: 3
+    - 1 year
+    - 1.5 year
+    - 2 years
+    - 2.5 years
+    correctAnswer: 2
     image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  - question: ooooooooooooooop
+  - question: Which flag is the most colorful?
     options:
-    - 5
-    - 6
-    - 7
-    - 8
-    questionIndex: 1
-    correctAnswerIndex: 2
+    - Dominica
+    - Belize
+    - Spain
+    - Swaziland
+    correctAnswer: 1
     image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - question: dddddddddddd
+  - question: "Where does the name \u201Csandwich\u201D come from?"
     options:
-    - 5
-    - 6
-    - 7
-    - 8
-    questionIndex: 2
-    correctAnswerIndex: 2
+    - From a British nobleman
+    - "From a Dutch word meaning \u201Cstacked bread\u201D"
+    - 'From an animal in Australia '
+    - 'From a Sweden beach '
+    correctAnswer: 0
     image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}

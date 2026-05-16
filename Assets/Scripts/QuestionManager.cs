@@ -14,6 +14,7 @@ public class QuestionManager : MonoBehaviour
     public GameManager gameManager;
     public int currentQuestionIndex;
     public TextMeshProUGUI Question_Text;
+
     public List<TextMeshProUGUI> Options_Text;
 
 

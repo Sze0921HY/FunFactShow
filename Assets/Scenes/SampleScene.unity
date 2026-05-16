@@ -220,7 +220,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -622,8 +622,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.001953125, y: -29.740196}
-  m_SizeDelta: {x: 0.30004883, y: -59.6845}
+  m_AnchoredPosition: {x: 29.668396, y: -29.740196}
+  m_SizeDelta: {x: -242.5878, y: -59.6845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284479841
 MonoBehaviour:
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2413,6 +2413,7 @@ MonoBehaviour:
   QuestionImage: {fileID: 233857985}
   questionScript: {fileID: 11400000, guid: 9ef2541056a64014fa36bdf4ffa6eff6, type: 2}
   buttonManager: {fileID: 1509557313}
+  gameManager: {fileID: 1509557314}
   currentQuestionIndex: 0
   Question_Text: {fileID: 284479841}
   Options_Text:
@@ -2460,6 +2461,7 @@ MonoBehaviour:
   finishedTime: 5
   answered: 0
   currentQuestionIndex: 0
+  questionOrder: 
   questionScript: {fileID: 11400000, guid: 9ef2541056a64014fa36bdf4ffa6eff6, type: 2}
   questionManager: {fileID: 1509557312}
   buttonManager: {fileID: 1509557313}
@@ -2497,8 +2499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.14001465, y: -0.10202026}
-  m_SizeDelta: {x: 0.14001, y: -105.61}
+  m_AnchoredPosition: {x: 27.3416, y: -0.10202026}
+  m_SizeDelta: {x: -68.1573, y: -105.61}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1587568342
 MonoBehaviour:
@@ -2879,7 +2881,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

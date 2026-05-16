@@ -20,9 +20,7 @@ public class GameManager : MonoBehaviour
     public float resultTime;
     public float finishedTime;
     public bool answered = false;
-
     public int currentQuestionIndex;
-
     private Coroutine stateRoutine;
 
     public List<int> questionOrder = new List<int>();
