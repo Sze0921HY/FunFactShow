@@ -37,3 +37,19 @@ MonoBehaviour:
     - 'From a Sweden beach '
     correctAnswer: 0
     image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: Which animal doesn't have eyeball?
+    options:
+    - 'Octopus '
+    - 'Kangaroo '
+    - Owl
+    - Turtle
+    correctAnswer: 2
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: Who hate wearing socks?
+    options:
+    - Stephen William Hawking
+    - Albert Einstein
+    - Marie Curie
+    - Thomas Hunt Morgan
+    correctAnswer: 1
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
