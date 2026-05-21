@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public QuestionScript questionScript;
     public QuestionManager questionManager;
     public ButtonManager buttonManager;
+    public AudioManager audioManager;
 
     private void Awake()
     {
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartQuestionFlow()
     {
         //Debug.Log("Show Question");
+        buttonManager.ButtonReset();
 
         questionManager.showQuestion(currentQuestionIndex);
 
@@ -98,8 +100,15 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AnsweringFlow()
     {
-        //Debug.Log("Player Answering");
+        answeringTime -= 3;
+
         yield return new WaitForSeconds(answeringTime);
+
+        audioManager.PlayCountdownSFX();
+
+
+        //Debug.Log("Player Answering");
+        yield return new WaitForSeconds(3);
         ChangeState(GameState.Result);
     }
 

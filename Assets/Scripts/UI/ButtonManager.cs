@@ -15,6 +15,9 @@ public class ButtonManager : MonoBehaviour
     public int currentQuestionIndex;
     public bool isClicked = false;
 
+    public List<Sprite> sprites;
+    public AudioManager audioManager;
+
     private void Awake()
     {
         for (int i = 0; i < buttonList.Count; i++)
@@ -43,12 +46,14 @@ public class ButtonManager : MonoBehaviour
 
         if (isCorrect)
         {
-            Debug.Log("Correct");
+            audioManager.playCorrectSFX();
+            buttonList[index].image.sprite = sprites[0];
 
         }
         else
         {
-            Debug.Log("Wrong");
+            audioManager.playWrongSFX();
+            buttonList[index].image.sprite = sprites[1];
 
         }
 
@@ -56,6 +61,13 @@ public class ButtonManager : MonoBehaviour
 
     }
 
+    public void ButtonReset()
+    {
+        for(int i = 0; i < buttonList.Count; i++)
+        {
+            buttonList[i].image.sprite = sprites[2];
+        } 
+    }
 
 
     public void OnButtonClicked(int index)
