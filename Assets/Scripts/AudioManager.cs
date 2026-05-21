@@ -6,7 +6,6 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource_SFX;
     public AudioSource audioSource_BGM;
-
     public Slider volumeSlider;
 
     [Header(header: "SFX")]
@@ -18,6 +17,12 @@ public class AudioManager : MonoBehaviour
     [Header(header: "Music")]
     public AudioClip BGM;
 
+
+    [Header(header: "Reference")]
+    public PauseMenu pauseMenu;
+
+    bool isPlaying = true;
+    bool isPaused = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,5 +64,37 @@ public class AudioManager : MonoBehaviour
         audioSource_SFX.Stop();
         audioSource_SFX.clip = CountDownSFX;
         audioSource_SFX.Play();
+    }
+
+    public void switchPitchforPause()
+    {
+        if (!isPaused)
+        {
+            isPaused = true;
+            audioSource_BGM.pitch = 0.6f;
+        }
+        else
+        {
+            isPaused = false;
+            audioSource_BGM.pitch = 1f;
+        }
+    }
+
+
+    public void AllaudioStop()
+    {
+        audioSource_SFX.Stop();
+        audioSource_BGM.Stop();
+
+    }
+
+    public void StopSFX()
+    {
+        audioSource_SFX.Pause();
+    }
+
+    public void continueSFX()
+    {
+        audioSource_SFX.UnPause();
     }
 }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         Result,
         Finished,
         GameOver,
+        Paused,
     }
 
     public GameState currentState;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public bool answered = false;
     public int currentQuestionIndex;
     private Coroutine stateRoutine;
+    public GameState OldState;
 
     public List<int> questionOrder = new List<int>();
 
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     public QuestionManager questionManager;
     public ButtonManager buttonManager;
     public AudioManager audioManager;
+    public PauseMenu pauseMenu;
 
     private void Awake()
     {
@@ -56,7 +59,6 @@ public class GameManager : MonoBehaviour
 
         currentState = newState;
 
-
         if (newState == GameState.Answering) 
         {
             answered = false;
@@ -82,9 +84,11 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOver:
-                //Debug.Log("GameOver");
+                audioManager.AllaudioStop();
                 break;
         }
+
+
     }
 
     IEnumerator StartQuestionFlow()
@@ -151,6 +155,17 @@ public class GameManager : MonoBehaviour
             ChangeState(GameState.GameOver);
 
         }
+    }
+
+    public void OnPuase()
+    {
+        OldState = currentState;
+        ChangeState(GameState.Paused);
+    }
+
+    public void unPaused()
+    {
+        ChangeState(OldState);
     }
 
     void Shuffle(List<int> list)
