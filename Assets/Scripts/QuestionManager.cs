@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
+using static GameManager;
 
 
 public class QuestionManager : MonoBehaviour
@@ -14,14 +16,15 @@ public class QuestionManager : MonoBehaviour
     public GameManager gameManager;
     public int currentQuestionIndex;
     public TextMeshProUGUI Question_Text;
-
+    public TextMeshProUGUI Timer;
     public List<TextMeshProUGUI> Options_Text;
+    public int timer;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-
+        timer = (int)gameManager.answeringTime;
     }
 
     private void Start()
@@ -50,5 +53,24 @@ public class QuestionManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CountDown()
+    {
+        StartCoroutine(counting());
+    }
+
+    IEnumerator counting()
+    {
+        for (int i = timer; i > 0; i--)
+        {
+            if (gameManager.currentState != GameState.Answering)
+                yield break;
+
+            Timer.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+
+        Timer.text = "0";
     }
 }

@@ -31,10 +31,10 @@ MonoBehaviour:
     image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - question: "Where does the name \u201Csandwich\u201D come from?"
     options:
-    - From a British nobleman
-    - "From a Dutch word meaning \u201Cstacked bread\u201D"
-    - 'From an animal in Australia '
-    - 'From a Sweden beach '
+    - From a nobleman
+    - From a emperor
+    - 'From an animal '
+    - 'From a beach '
     correctAnswer: 0
     image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - question: Which animal doesn't have eyeball?
@@ -60,4 +60,68 @@ MonoBehaviour:
     - Bahlsen Butter Leaves
     - Titanic Cracker
     correctAnswer: 3
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: How many times hotter is lightning than the Sun?
+    options:
+    - 2
+    - 3
+    - 4
+    - 5
+    correctAnswer: 3
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: How old is the Sun?
+    options:
+    - 4.6 billion
+    - 4.3 billion
+    - 5.7 billion
+    - 5.2 bilion
+    correctAnswer: 0
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: What animal has fingerprints similar to humans?
+    options:
+    - Koalas
+    - Mice
+    - Raccoon
+    - 'Pangolin '
+    correctAnswer: 0
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: Which animal can't taste anything that is sweet?
+    options:
+    - Rabbit
+    - Dog
+    - Bear
+    - Cat
+    correctAnswer: 3
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: Your fingernails grow faster when you are...
+    options:
+    - Hot
+    - Cold
+    - Sleeping
+    - Swimming
+    correctAnswer: 1
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: How many percent of all the oxygen you breathe is used by your brain?
+    options:
+    - 15%
+    - 20%
+    - 25%
+    - 30%
+    correctAnswer: 1
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: How long can a snail sleep?
+    options:
+    - 10 months
+    - 1.5 years
+    - 3 years
+    - 5 years
+    correctAnswer: 2
+    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - question: Which animal cannot walk backwards?
+    options:
+    - Panda
+    - Horse
+    - Kangaroo
+    - Goat
+    correctAnswer: 2
     image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}

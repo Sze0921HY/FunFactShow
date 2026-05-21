@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     public QuestionManager questionManager;
     public ButtonManager buttonManager;
     public AudioManager audioManager;
-    public PauseMenu pauseMenu;
 
     private void Awake()
     {
@@ -104,12 +103,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AnsweringFlow()
     {
+        questionManager.CountDown();
         answeringTime -= 3;
 
         yield return new WaitForSeconds(answeringTime);
 
         audioManager.PlayCountdownSFX();
-
 
         //Debug.Log("Player Answering");
         yield return new WaitForSeconds(3);
