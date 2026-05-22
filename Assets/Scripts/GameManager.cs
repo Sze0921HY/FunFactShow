@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public float resultTime;
     public float finishedTime;
     public bool answered = false;
+    public bool isCorrectAnswer;
     public int currentQuestionIndex;
     private Coroutine stateRoutine;
     public GameState OldState;
@@ -37,9 +39,12 @@ public class GameManager : MonoBehaviour
     public GameObject EndGamePanel;
     public GameObject WinText;
     public GameObject LoseText;
+    public GameObject PerfectText;
+
 
     public TextMeshProUGUI totalQuestionAnsweredText;
 
+    bool perfectEnding;
 
     //Referecne
     public QuestionScript questionScript;
@@ -54,7 +59,8 @@ public class GameManager : MonoBehaviour
         finishedTime_1 = 2f;
         answeringTime -= answeringTime_1;
         finishedTime -= finishedTime_1;
-
+        perfectEnding = false;
+        isCorrectAnswer = false;
     }
 
     void Start()
@@ -66,6 +72,15 @@ public class GameManager : MonoBehaviour
         Shuffle(questionOrder);
         currentQuestionIndex = 0;
         ChangeState(GameState.StartQuestion);
+    }
+
+    void CheckQuestionIndex()
+    {
+        if (!(currentQuestionIndex < questionOrder.Count))
+        {
+            perfectEnding = true;
+            ChangeState(GameState.GameOver);
+        }
     }
 
     public void ChangeState(GameState newState)
@@ -102,7 +117,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOver:
-                EndGame(currentQuestionIndex==0);
+                EndGame(currentQuestionIndex==0, perfectEnding);
                 break;
         }
 
@@ -138,9 +153,10 @@ public class GameManager : MonoBehaviour
     IEnumerator ResultFlow()
     {
         //Debug.Log("Showing Result");
+
         yield return new WaitForSeconds(resultTime);
 
-        if (answered)
+        if (answered && isCorrectAnswer)
         {
             ChangeState(GameState.Finished);
         }
@@ -159,6 +175,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(finishedTime);
 
         currentQuestionIndex++;
+
+        CheckQuestionIndex();
+
         buttonManager.UpdateButton(currentQuestionIndex);
         questionManager.ResetCounting();
 
@@ -169,16 +188,8 @@ public class GameManager : MonoBehaviour
     public void OnAnswerSubmitted(bool isCorrect)
     {
         answered = true;
-
-        if (isCorrect)
-        {
-            ChangeState(GameState.Result);
-        }
-        else
-        {
-            ChangeState(GameState.GameOver);
-
-        }
+        isCorrectAnswer = isCorrect;
+        ChangeState(GameState.Result);
     }
 
     public void OnPuase()
@@ -204,22 +215,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndGame(bool isLosing)
+    public void EndGame(bool isLosing, bool isPerfect)
     {
         audioManager.AllaudioStop();
         totalQuestionAnsweredText.text = currentQuestionIndex.ToString();
 
-        if (isLosing)
+        if (!isLosing)
         {
-            LoseText.SetActive(true);
-            WinText.SetActive(false);
+            audioManager.TriggerCheer(true);
+        }
 
+        if (isPerfect)
+        {
+            PerfectText.SetActive(true);
+            WinText.SetActive(false);
+            LoseText.SetActive(false);
+            
         }
         else
         {
-            WinText.SetActive(true);
-            LoseText.SetActive(false);
+            if (isLosing)
+            {
+                LoseText.SetActive(true);
+                WinText.SetActive(false);
+                PerfectText.SetActive(false);
+
+            }
+            else
+            {
+                WinText.SetActive(true);
+                LoseText.SetActive(false);
+                PerfectText.SetActive(false);
+            }
         }
+
 
         EndGamePanel.SetActive(true);
     }

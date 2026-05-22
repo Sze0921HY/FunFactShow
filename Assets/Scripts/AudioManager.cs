@@ -12,14 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip CorrectSFX;
     public AudioClip WrongSFX;
     public AudioClip CountDownSFX;
-
-
-    [Header(header: "Music")]
-    public AudioClip BGM;
-
-
-    [Header(header: "Reference")]
-    public PauseMenu pauseMenu;
+    public AudioClip CheerSFX;
 
     bool isPlaying = true;
     bool isPaused = false;
@@ -37,6 +30,19 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void TriggerCheer(bool isTrigger)
+    {
+        if (isTrigger)
+        {
+            audioSource_SFX.clip = CheerSFX;
+            audioSource_SFX.Play();
+        }
+        else
+        {
+
+        }
     }
 
     private void SetVolume(float volume)
