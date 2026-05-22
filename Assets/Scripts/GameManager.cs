@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -30,9 +31,15 @@ public class GameManager : MonoBehaviour
     public float answeringTime_1;
     public float finishedTime_1;
 
-
-
     public List<int> questionOrder = new List<int>();
+
+    [Header("GameOver")]
+    public GameObject EndGamePanel;
+    public GameObject WinText;
+    public GameObject LoseText;
+
+    public TextMeshProUGUI totalQuestionAnsweredText;
+
 
     //Referecne
     public QuestionScript questionScript;
@@ -95,7 +102,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOver:
-                audioManager.AllaudioStop();
+                EndGame(currentQuestionIndex==0);
                 break;
         }
 
@@ -195,5 +202,25 @@ public class GameManager : MonoBehaviour
             list[i] = list[rand];
             list[rand] = temp;
         }
+    }
+
+    public void EndGame(bool isLosing)
+    {
+        audioManager.AllaudioStop();
+        totalQuestionAnsweredText.text = currentQuestionIndex.ToString();
+
+        if (isLosing)
+        {
+            LoseText.SetActive(true);
+            WinText.SetActive(false);
+
+        }
+        else
+        {
+            WinText.SetActive(true);
+            LoseText.SetActive(false);
+        }
+
+        EndGamePanel.SetActive(true);
     }
 }

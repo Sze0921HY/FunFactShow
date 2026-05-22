@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -138,5 +139,10 @@ public class PauseMenu : MonoBehaviour
         audioManager.switchPitchforPause();
     }
 
+
+    public void backMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }
