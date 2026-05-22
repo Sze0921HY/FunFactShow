@@ -9,7 +9,7 @@ using static GameManager;
 
 public class QuestionManager : MonoBehaviour
 {
-    public Image QuestionImage;
+    //public Image QuestionImage;
 
     public QuestionScript questionScript;
     public ButtonManager buttonManager;
@@ -17,6 +17,8 @@ public class QuestionManager : MonoBehaviour
     public int currentQuestionIndex;
     public TextMeshProUGUI Question_Text;
     public TextMeshProUGUI Timer;
+    public TextMeshProUGUI QuestionIndex_Text;
+
     public List<TextMeshProUGUI> Options_Text;
     public int timer;
 
@@ -34,12 +36,14 @@ public class QuestionManager : MonoBehaviour
 
     public void showQuestion(int QuestionIndex)
     {
+        QuestionIndex_Text.text = currentQuestionIndex + 1.ToString();
+
         currentQuestionIndex = QuestionIndex;
 
         var question = questionScript.questionList[gameManager.questionOrder[currentQuestionIndex]];
 
 
-        QuestionImage.sprite = question.image;
+        //QuestionImage.sprite = question.image;
 
         Question_Text.text = question.question;
 
@@ -47,7 +51,12 @@ public class QuestionManager : MonoBehaviour
         {
             Options_Text[i].text = question.options[i];
         }
+
+        int index = currentQuestionIndex + 1;
+        QuestionIndex_Text.text = index.ToString();
+
     }
+
 
     // Update is called once per frame
     void Update()
@@ -72,5 +81,10 @@ public class QuestionManager : MonoBehaviour
         }
 
         Timer.text = "0";
+    }
+
+    public void ResetCounting()
+    {
+        Timer.text = "";
     }
 }

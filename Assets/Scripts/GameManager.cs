@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public GameState currentState;
 
+    [Header("Time stats")]
     public float questionTime;
     public float answeringTime;
     public float resultTime;
@@ -25,6 +26,12 @@ public class GameManager : MonoBehaviour
     private Coroutine stateRoutine;
     public GameState OldState;
 
+    [Header("Time stats --- More detail")]
+    public float answeringTime_1;
+    public float finishedTime_1;
+
+
+
     public List<int> questionOrder = new List<int>();
 
     //Referecne
@@ -32,9 +39,14 @@ public class GameManager : MonoBehaviour
     public QuestionManager questionManager;
     public ButtonManager buttonManager;
     public AudioManager audioManager;
+    public Transition transition;
 
     private void Awake()
     {
+        answeringTime_1 = 3;
+        finishedTime_1 = 2f;
+        answeringTime -= answeringTime_1;
+        finishedTime -= finishedTime_1;
 
     }
 
@@ -92,10 +104,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartQuestionFlow()
     {
+        questionManager.showQuestion(currentQuestionIndex);
+
+        transition.transitionGoUp();
+
         //Debug.Log("Show Question");
         buttonManager.ButtonReset();
-
-        questionManager.showQuestion(currentQuestionIndex);
 
         yield return new WaitForSeconds(questionTime);
         ChangeState(GameState.Answering);
@@ -104,14 +118,13 @@ public class GameManager : MonoBehaviour
     IEnumerator AnsweringFlow()
     {
         questionManager.CountDown();
-        answeringTime -= 3;
 
         yield return new WaitForSeconds(answeringTime);
 
         audioManager.PlayCountdownSFX();
 
         //Debug.Log("Player Answering");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(answeringTime_1);
         ChangeState(GameState.Result);
     }
 
@@ -132,12 +145,17 @@ public class GameManager : MonoBehaviour
 
     IEnumerator FinishedFlow()
     {
-        currentQuestionIndex++;
-        buttonManager.UpdateButton(currentQuestionIndex);
-        //Debug.Log("questionList.Count = " + questionScript.questionList.Count);
+
+
+        transition.transitionGoDown();
+        
         yield return new WaitForSeconds(finishedTime);
 
+        currentQuestionIndex++;
+        buttonManager.UpdateButton(currentQuestionIndex);
+        questionManager.ResetCounting();
 
+        yield return new WaitForSeconds(finishedTime_1);
         ChangeState(GameState.StartQuestion);
     }
 
