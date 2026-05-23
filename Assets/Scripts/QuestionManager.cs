@@ -19,6 +19,8 @@ public class QuestionManager : MonoBehaviour
     public TextMeshProUGUI Timer;
     public TextMeshProUGUI QuestionIndex_Text;
 
+    public List<GameObject> text;
+
     public List<TextMeshProUGUI> Options_Text;
     public int timer;
 
@@ -31,7 +33,23 @@ public class QuestionManager : MonoBehaviour
 
     private void Start()
     {
+        hideText();
+    }
 
+    public void showText()
+    {
+        for (int i = 0; i < text.Count; i++)
+        {
+            text[i].SetActive(true);
+        }
+    }
+
+    public void hideText()
+    {
+        for (int i = 0; i < text.Count; i++)
+        {
+            text[i].SetActive(false);
+        }
     }
 
     public void showQuestion(int QuestionIndex)

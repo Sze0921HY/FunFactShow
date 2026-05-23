@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AnsweringFlow()
     {
+        questionManager.showText();
         questionManager.CountDown();
 
         yield return new WaitForSeconds(answeringTime);
@@ -177,7 +178,7 @@ public class GameManager : MonoBehaviour
         transition.transitionGoDown();
         
         yield return new WaitForSeconds(finishedTime);
-
+        questionManager.hideText();
         currentQuestionIndex++;
 
         CheckQuestionIndex();

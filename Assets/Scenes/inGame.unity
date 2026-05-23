@@ -4042,6 +4042,11 @@ MonoBehaviour:
   Question_Text: {fileID: 284479841}
   Timer: {fileID: 990668839}
   QuestionIndex_Text: {fileID: 1587568342}
+  text:
+  - {fileID: 60487285}
+  - {fileID: 423413903}
+  - {fileID: 303921944}
+  - {fileID: 1725719404}
   Options_Text:
   - {fileID: 60487287}
   - {fileID: 423413905}

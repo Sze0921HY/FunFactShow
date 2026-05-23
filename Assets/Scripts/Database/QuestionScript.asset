@@ -257,7 +257,7 @@ MonoBehaviour:
   - question: In France, a pie chart is sometimes called what?
     options:
     - Brie
-    - "\xC9clair"
+    - Eclair
     - Baguette
     - Camembert
     correctAnswer: 3
