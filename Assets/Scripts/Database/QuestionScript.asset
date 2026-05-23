@@ -238,14 +238,6 @@ MonoBehaviour:
     - Twelve
     correctAnswer: 2
     image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  - question: Which number is spelled with its letters in alphabetical order?
-    options:
-    - Sixty
-    - Eighty
-    - Forty
-    - Twelve
-    correctAnswer: 2
-    image: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   - question: Which number is spelled with its letters in reverse alphabetical order?
     options:
     - Six
