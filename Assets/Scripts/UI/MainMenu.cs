@@ -6,8 +6,14 @@ public class MainMenu : MonoBehaviour
 {
     private Coroutine buttonCoroutine;
     public AudioSource buttonSFX;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        animator.SetBool("isMainMenu", true);
+    }
+
     void Start()
     {
         

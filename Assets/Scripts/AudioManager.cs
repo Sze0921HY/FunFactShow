@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip WrongSFX;
     public AudioClip CountDownSFX;
     public AudioClip CheerSFX;
+    public AudioClip DisappointedSFX;
+
 
     bool isPlaying = true;
     bool isPaused = false;
@@ -43,6 +45,12 @@ public class AudioManager : MonoBehaviour
         {
 
         }
+    }
+
+    public void playSFX_Disappoint()
+    {
+        audioSource_SFX.clip = DisappointedSFX;
+        audioSource_SFX.Play(); 
     }
 
     private void SetVolume(float volume)

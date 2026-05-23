@@ -61,6 +61,8 @@ public class ButtonManager : MonoBehaviour
 
     }
 
+
+
     public void ButtonReset()
     {
         for(int i = 0; i < buttonList.Count; i++)

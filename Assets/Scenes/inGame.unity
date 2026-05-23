@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fun Facts You Learn, Congrats!!!
+  m_text: Fun Facts You Know, Nice Job!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62aa2f902d70c9b41b7294f22e2b116c, type: 2}
   m_sharedMaterial: {fileID: -8489116611652149065, guid: 62aa2f902d70c9b41b7294f22e2b116c, type: 2}
@@ -4034,7 +4034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200ee90497aed044c8834989f286f2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestionManager
-  questionScript: {fileID: 11400000, guid: 83e6cfaf1810fc448b5fff4643300a20, type: 2}
+  questionScript: {fileID: 11400000, guid: 9ef2541056a64014fa36bdf4ffa6eff6, type: 2}
   buttonManager: {fileID: 1509557313}
   gameManager: {fileID: 1509557314}
   currentQuestionIndex: 0
@@ -4065,7 +4065,7 @@ MonoBehaviour:
   - {fileID: 2049349524}
   - {fileID: 486416257}
   - {fileID: 1762741521}
-  questionScript: {fileID: 11400000, guid: 83e6cfaf1810fc448b5fff4643300a20, type: 2}
+  questionScript: {fileID: 11400000, guid: 9ef2541056a64014fa36bdf4ffa6eff6, type: 2}
   currentQuestionIndex: 0
   isClicked: 0
   sprites:
@@ -4087,9 +4087,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currentState: 0
   questionTime: 2
-  answeringTime: 5
+  answeringTime: 10
   resultTime: 3
-  finishedTime: 3
+  finishedTime: 2
   answered: 0
   isCorrectAnswer: 0
   currentQuestionIndex: 0
@@ -4102,7 +4102,7 @@ MonoBehaviour:
   LoseText: {fileID: 2055256222}
   PerfectText: {fileID: 407023324}
   totalQuestionAnsweredText: {fileID: 986146339}
-  questionScript: {fileID: 11400000, guid: 83e6cfaf1810fc448b5fff4643300a20, type: 2}
+  questionScript: {fileID: 11400000, guid: 9ef2541056a64014fa36bdf4ffa6eff6, type: 2}
   questionManager: {fileID: 1509557312}
   buttonManager: {fileID: 1509557313}
   audioManager: {fileID: 1509557316}
@@ -4223,6 +4223,7 @@ MonoBehaviour:
   WrongSFX: {fileID: 8300000, guid: 7cd75a880ea96ff46873b5f47496f2b6, type: 3}
   CountDownSFX: {fileID: 8300000, guid: 08f0b2dd189b6aa4290ca438b06bc92e, type: 3}
   CheerSFX: {fileID: 8300000, guid: 397f97938d38d784dbfee5334fd1021e, type: 3}
+  DisappointedSFX: {fileID: 8300000, guid: 7d8e4533ad156c341bf3b1a8d6be9ea3, type: 3}
 --- !u!82 &1509557317
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5324,7 +5325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1888188287
 RectTransform:
   m_ObjectHideFlags: 0

@@ -869,6 +869,7 @@ GameObject:
   - component: {fileID: 886848083}
   - component: {fileID: 886848082}
   - component: {fileID: 886848081}
+  - component: {fileID: 886848085}
   m_Layer: 0
   m_Name: Buttons
   m_TagString: Untagged
@@ -987,6 +988,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!95 &886848085
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886848079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 735471caf52c3e448842197a2e54d378, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &949420603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   buttonSFX: {fileID: 1799922695}
+  animator: {fileID: 886848085}
 --- !u!82 &1799922694
 AudioSource:
   m_ObjectHideFlags: 0

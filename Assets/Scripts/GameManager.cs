@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         answeringTime_1 = 3;
-        finishedTime_1 = 2f;
+        finishedTime_1 = 1f;
         answeringTime -= answeringTime_1;
         finishedTime -= finishedTime_1;
         perfectEnding = false;
@@ -224,6 +224,10 @@ public class GameManager : MonoBehaviour
         {
             audioManager.TriggerCheer(true);
         }
+        else
+        {
+            audioManager.playSFX_Disappoint();
+        }
 
         if (isPerfect)
         {
@@ -248,8 +252,7 @@ public class GameManager : MonoBehaviour
                 PerfectText.SetActive(false);
             }
         }
-
-
         EndGamePanel.SetActive(true);
     }
+
 }
