@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public float finishedTime;
     public bool answered = false;
     public bool isCorrectAnswer;
+    public bool isPuased = false;
     public int currentQuestionIndex;
     private Coroutine stateRoutine;
     public GameState OldState;
@@ -128,7 +129,10 @@ public class GameManager : MonoBehaviour
     {
         questionManager.showQuestion(currentQuestionIndex);
 
-        transition.transitionGoUp();
+        if (!isPuased)
+        {
+            transition.transitionGoUp();
+        }
 
         //Debug.Log("Show Question");
         buttonManager.ButtonReset();
@@ -194,6 +198,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPuase()
     {
+        isPuased = true;
         OldState = currentState;
         ChangeState(GameState.Paused);
     }
@@ -201,6 +206,8 @@ public class GameManager : MonoBehaviour
     public void unPaused()
     {
         ChangeState(OldState);
+        isPuased = false;
+
     }
 
     void Shuffle(List<int> list)

@@ -62,7 +62,10 @@ public class PauseMenu : MonoBehaviour
         audioManager.switchPitchforPause();
 
         audioManager.continueSFX();
+        
+        
         gameManager.unPaused();
+
         game.SetActive(true);
         pauseMenu.SetActive(false);
     }
